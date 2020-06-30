@@ -1,0 +1,9 @@
+[package]
+name = "full-moon-compat-luaparse"
+version = "0.1.0"
+authors = ["Xiphoseer"]
+edition = "2018"
+
+[dependencies]
+full_moon = { git = "https://github.com/Kampfkarren/full-moon.git", default-features = false }
+miniserde = "0.1"
