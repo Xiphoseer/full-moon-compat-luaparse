@@ -219,13 +219,11 @@ impl<'a, 'b> Serialize for FunctionIdentifier<'a, 'b> {
                         indexer: Cow::Borrowed(":"),
                         identifier: Identifier(Cow::Borrowed(&method)),
                     }))
+                } else if let Some(last) = name_vec.pop() {
+                    let base = Cow::Owned(name_vec);
+                    function_identifier_fragment(base, last)
                 } else {
-                    if let Some(last) = name_vec.pop() {
-                        let base = Cow::Owned(name_vec);
-                        function_identifier_fragment(base, last)
-                    } else {
-                        todo!("missing function identifier")
-                    }
+                    todo!("missing function identifier")
                 }
             }
             Self::Simple(ident) => identifier_fragment(&ident),
