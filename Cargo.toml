@@ -3,7 +3,15 @@ name = "full-moon-compat-luaparse"
 version = "0.1.0"
 authors = ["Xiphoseer"]
 edition = "2018"
+description = "A serializer to turn a full-moon AST into luaparse.js-compatible JSON (using miniserde)"
+repository = "https://github.com/xiphoseer/full-moon-compat-luaparse"
+readme = "README.md"
+license = "MPL-2.0"
+categories = ["encoding"]
 
 [dependencies]
-full_moon = { git = "https://github.com/Kampfkarren/full-moon.git", default-features = false }
+full_moon = { version = "0.6.1", default-features = false }
 miniserde = "0.1"
+
+[badges]
+maintenance = { status = "passively-maintained" }
