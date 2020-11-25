@@ -481,8 +481,8 @@ fn token_fragment<'a, 'b>(token: &'b TokenReference<'a>) -> Fragment<'a> {
             raw: token.to_string(),
         })),
         TokenType::Number { text } => {
-            if text.starts_with("0x") {
-                let value = u64::from_str_radix(&text[2..], 16).unwrap();
+            if let Some(src) = text.strip_prefix("0x") {
+                let value = u64::from_str_radix(src, 16).unwrap();
                 Fragment::Map(Box::new(NumericLiteralStream {
                     state: 0,
                     value,
